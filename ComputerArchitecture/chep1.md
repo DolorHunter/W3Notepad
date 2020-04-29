@@ -1,8 +1,6 @@
-# Computer Architecture
+# 01.Introduction
 
-## 01.Introduction
-
-### The Computer Revolution
+## The Computer Revolution
 
 - Progress in computer technology
   - Underpinned by Moore’s Law
@@ -14,7 +12,7 @@
   - Search Engines
 - Computers are pervasive
 
-### Classes of Computers
+## Classes of Computers
 
 - Personal Mobile Device(PMD)
   - e.g. smartphones, tablet computers
@@ -29,7 +27,7 @@
 - Embedded Computers
   - Emphasis: price
 
-### The PostPC Era
+## The PostPC Era
 
 ![The PostPC Era](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1587971566/notepad/2020-04-27_145700_a34ydu.webp)
 
@@ -44,7 +42,7 @@
   - Porcon of sogware run on a PMD and a porcon run in the Cloud
   - Amazon and Google
 
-### What is Computer Architecture
+## What is Computer Architecture
 
 ![What is Computer Architecture](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1587971566/notepad/2020-04-27_150521_xqubgz.webp)
 
@@ -55,13 +53,13 @@ Application <-> Physics
 > In its broadest definition, computer architecture is the design of the abstraction/implementation layers that allow us to execute information processing
 applications efficiently using manufacturing technologies
 
-### Abstractions in Modern Computing Systems
+## Abstractions in Modern Computing Systems
 
 ![Abstractions in Modern Computing Systems](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1587971774/notepad/2020-04-27_151507_t78ly3.webp)
 
 *注: 红色部分为计算机体系结构所关注的内容.*
 
-### Great Ideas in Computer Architectures
+## Great Ideas in Computer Architectures
 
 1. Design for **Moore’s Law**
 2. Use **abstraction** to simplify design
@@ -72,11 +70,11 @@ applications efficiently using manufacturing technologies
 7. **Hierarchy** of memories
 8. **Dependability** via redundancy
 
-### Sequential Processor Performance
+## Sequential Processor Performance
 
 ![Sequential Processor Performance](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1587972223/notepad/2020-04-27_152135_hzndhn.webp)
 
-### 课程内容
+## 课程内容
 
 Computer Organization
 
@@ -110,7 +108,7 @@ Computer Architecture
   - Multicore
   - Manycore
 
-### Architecture vs. Microarchitecture
+## Architecture vs. Microarchitecture
 
 “Architecture”/Instruction Set Architecture:
 
@@ -137,7 +135,7 @@ Microarchitecture/Organization:
 - Tradeoffs on how to implement ISA for some metric(Speed, Energy, Cost)
 - Examples: Pipeline depth, number of pipelines, cache size, silicon area, peak power, execution ordering, bus widths, ALU widths
 
-### 软件的发展
+## 软件的发展
 
 up to 1955, Libraries of numerical routines
 
@@ -225,7 +223,7 @@ results compared
 - On-Chip 128MB eDRAM L3 cache
 - Up to 672MB eDRAM L4
 
-### Same Architecture Different Microarchitecture
+## Same Architecture Different Microarchitecture
 
 AMDPhenomX4 | IntelAtom | IBMPOWER7
 -|-|-
@@ -238,7 +236,7 @@ Decode3Instructions/Cycle/Core |  Decode2Instructions/Cycle/Core | Decode6Instru
 Out-of-order | In-order | Out-of-order
 2.6GHz | 1.6GHz | 4.25GHz
 
-### Architectural Challenges
+## Architectural Challenges
 
 ![Architectural Challenges](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1588140686/notepad/2020-04-29_140940_kzrkuc.webp)
 

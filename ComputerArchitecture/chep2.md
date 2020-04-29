@@ -1,8 +1,6 @@
-# Computer Architecture
+# 02.Performance Analysis
 
-## 02.Performance Analysis
-
-### 性能分析
+## 性能分析
 
 Which of the following airplanes has the best performance?
 
@@ -24,7 +22,7 @@ The answer is not simple:
 - Program development - Integer performance
 - Database workload - Memory, I/O
 
-### 计算机的性能
+## 计算机的性能
 
 Want to buy the fastest computer for what
 you want to do?
@@ -37,7 +35,7 @@ the customer wants to pay?
 
 - Cost is an important criterion
 
-### 本节内容
+## 本节内容
 
 - Time and performance
 - Iron Law —> Time
@@ -45,7 +43,7 @@ the customer wants to pay?
 - Which programs and how to average
 - Amdahl’s law
 
-### 如何定义性能
+## 如何定义性能
 
 What is important to whom?
 
@@ -61,7 +59,7 @@ Datacenter manager
 - Maximize completion rate = #jobs/second
 - Called `throughput (吞吐率)`
 
-### Response Time vs. Throughput
+## Response Time vs. Throughput
 
 Is throughput = 1/avg. response time?
 
@@ -76,7 +74,7 @@ Is throughput = 1/avg. response time?
   - 5 people simultaneously filling tray (overlap)
   - Without overlap, throughput = 1/10
 
-### 对于计算机，什么是性能
+## 对于计算机，什么是性能
 
 - For computer architects
   - CPU time = time spent running a program
@@ -86,7 +84,7 @@ execution, etc.
 - Elapsed time = CPU time + I/O wait
 - `We will concentrate on CPU time`
 
-### 如何提升性能
+## 如何提升性能
 
 Improve (a) response time or (b) throughput?
 
@@ -95,7 +93,7 @@ Improve (a) response time or (b) throughput?
 - Add more CPUs
   - Helps (b) and perhaps (a) due to less queueing
 
-### 如何比较性能
+## 如何比较性能
 
 - Machine A is n times faster than machine B iff :
   - perf(A)/perf(B) = time(B)/time(A) = n
@@ -106,7 +104,7 @@ Improve (a) response time or (b) throughput?
   - 15/10 = 1.5 => A is 1.5 times faster than B
   - 15/10 = 1.5 => A is 50% faster than B
 
-### How to obtain the time
+## How to obtain the time
 
 方法：通过分解指令
 
@@ -118,7 +116,7 @@ Improve (a) response time or (b) throughput?
   - 1GHz Snapdragon runs 1000M cycles/sec, 1 cycle = 1ns
   - 2.5GHz Core i7 runs 2.5G cycles/sec, 1 cycle = 0.25ns
 
-### Iron Law in Performance
+## Iron Law in Performance
 
 ![Iron Law in Performance](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1588142448/notepad/2020-04-29_143917_q0mysg.webp)
 
@@ -134,7 +132,7 @@ Compiler Designer | Processor Designer | Chip Designer
 - Time/cycle
   - Determined by technology, organization, clever circuit design
 
-### 设计的目标
+## 设计的目标
 
 - Minimize time which is the product, `NOT`
 the isolated terms
@@ -145,7 +143,7 @@ optimizations
 slower
 - Be mind that: `terms are inter-related`
 
-### 其它指标
+## 其它指标
 
 - MIPS: 每秒百万次整型操作
 
@@ -185,7 +183,7 @@ MIPS的问题(根源)
     - Missing instructions (e.g. FP divide)
     - Optimizing compilers
 
-### 性能分析的主要原则
+## 性能分析的主要原则
 
 `能用时间尽量用时间, 如果绝对时间拿不到, 用相对时间 / 归一化时间也可以.`
 
@@ -195,7 +193,7 @@ MIPS的问题(根源)
 - Beware of Peak
   - “Guaranteed not to exceed”
 
-### Iron Law Example
+## Iron Law Example
 
 A:
 
@@ -241,7 +239,7 @@ Time(B)/Time(A) = 1 = (N x 2.0 x clock(A))/(N x 1.2 x 2)
 => clock(A) = 1.2ns
 ```
 
-### 总结一
+## 总结一
 
 - Time and performance: Machine A n times
 faster than Machine B
@@ -251,7 +249,7 @@ faster than Machine B
 - Other Metrics: MIPS and MFLOPS
   - Beware of peak and omitted details
 
-### 怎么衡量不同机器的性能
+## 怎么衡量不同机器的性能
 
 - Execution time of what program?
 - Best case - you always run the same set of programs
@@ -279,7 +277,7 @@ For total execution time, how much faster is B?
 
 How to Average?
 
-### Arithmetic Mean
+## Arithmetic Mean
 
 - Arithmetic Mean (same result)
 ![Arithmetic Mean](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1588145222/notepad/2020-04-29_152451_mcvci4.webp)
@@ -302,7 +300,7 @@ Average speed = total distance / total time
               = 45 mph
 ```
 
-### Harmonic Mean
+## Harmonic Mean
 
 - Harmonic mean of rates =
 ![Harmonic Mean](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1588145593/notepad/2020-04-29_153142_ln0ht0.webp)
@@ -346,7 +344,7 @@ Average | 5.05 | 1
 
 *注: 对于相对 / 归一化的数据, 不使用均值计算, 用几何均值.*
 
-### Geometric Mean
+## Geometric Mean
 
 - Use geometric mean for ratios
 - Geometric mean of ratios =
@@ -365,7 +363,7 @@ Disadvantage
   - Program 1 is run 100 times more often than program 2
 - `Generally, GM will mispredict for three or more machines`
 
-### 总结二
+## 总结二
 
 - Use AM for times
 - Use HM if forced to use rates
@@ -374,7 +372,7 @@ Disadvantage
 `Best of all, use unnormalized numbers to
 compute time`
 
-### 基准测试: SPEC2000
+## 基准测试: SPEC2000
 
 - System Performance Evaluation Cooperative
   - Formed in 80s to combat benchmarketing
@@ -392,7 +390,7 @@ Benchmark Pitfalls
   - Benchmarks age poorly; benchmarketing pressure causes vendors to optimize compiler, hardware, software to match benchmarks
   - Need to be periodically refreshed
 
-### Amdahl’s Law
+## Amdahl’s Law
 
 `加速比 = 未优化时间 / 优化后时间`
 
@@ -445,7 +443,7 @@ Make common case fast:
 
 E.g. 10% serial portion: 1/0.1 = 10x speedup with 1000 cores
 
-### 总结三
+## 总结三
 
 - Benchmarks: SPEC2000
 - Summarize performance:
