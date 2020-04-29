@@ -8,10 +8,10 @@ Which of the following airplanes has the best performance?
 
 Airplane | Passengers | Range (mi) | Speed (mph)
 -|-|-|-
-Boeing | 737-100 | 101 | 630 | 598
-Boeing | 747 | 470 | 4150 | 610
-BAC/Sud | Concorde | 132 | 4000 | 1350
-Douglas | DC-8-50 | 146 | 8720 | 544
+Boeing 737-100 | 101 | 630 | 598
+Boeing 747 | 470 | 4150 | 610
+BAC/Sud Concorde | 132 | 4000 | 1350
+Douglas DC-8-50 | 146 | 8720 | 544
 
 - How much faster is the Concorde vs. the 747? (Speed)
 - How much bigger is the 747 vs. DC-8? (Passengers)
