@@ -10,4 +10,6 @@
 * [ComputerArchitecture](computerarchitecture/README.md)
   * [01.Introduction](computerarchitecture/chep1.md)
   * [02.Performance Analysis](computerarchitecture/chep2.md)
+* [SoftwareEngineering](softwareengineering/README.md)
+  * [第1章 软件工程学概述](softwareengineering/chep1.md)
 
