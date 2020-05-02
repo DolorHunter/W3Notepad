@@ -13,5 +13,6 @@
   * [03.Instruction Set Architecture(ISA)](computerarchitecture/chep3.md)
 * [SoftwareEngineering](softwareengineering/README.md)
   * [第1章 软件工程学概述](softwareengineering/chep1.md)
-  * [第2章  可行性研究](softwareengineering/chep2.md)
+  * [第2章 可行性研究](softwareengineering/chep2.md)
+  *[第3章 需求分析](softwareengineering/chep3.md)
 
