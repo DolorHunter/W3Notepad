@@ -11,6 +11,7 @@
   * [01.Introduction](computerarchitecture/chep1.md)
   * [02.Performance Analysis](computerarchitecture/chep2.md)
   * [03.Instruction Set Architecture(ISA)](computerarchitecture/chep3.md)
+  * [04.流水线基础和性能分析](computerarchitecture/chep4.md)
 * [SoftwareEngineering](softwareengineering/README.md)
   * [第1章 软件工程学概述](softwareengineering/chep1.md)
   * [第2章 可行性研究](softwareengineering/chep2.md)
