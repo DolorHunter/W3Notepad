@@ -173,7 +173,7 @@ Jump to:
 
 `Memory only`
 
-```c
+```verilog
 mem[A] = mem[B] + mem[C]  // add A,B,C
 ```
 
@@ -183,7 +183,7 @@ mem[A] = mem[B] + mem[C]  // add A,B,C
 
 `Accumulator` : implicit single-element stack
 
-```c
+```verilog
 ACC = mem[B]  // load B
 ACC = ACC + mem[C]  // add C
 mem[A] = ACC  // store A
@@ -197,7 +197,7 @@ mem[A] = ACC  // store A
 
 `Stack` : top of stack (TOS) is implicit in instructions
 
-```c
+```verilog
 stack[TOS++] = mem[B]  // push B
 stack[TOS++] = mem[C]  // push C
 stack[TOS++] = stack[--TOS] + stack[--TOS]  // add
@@ -212,7 +212,7 @@ mem[A] = stack[--TOS]  // pop A
 
 `General - purpose registers` : multiple explicit accumulators
 
-```c
+```verilog
 R1 = mem[B]  // load R1,B
 R1 = R1 + mem[C]  // add R1, C
 mem[A] = R1  // store R1,A
@@ -220,7 +220,7 @@ mem[A] = R1  // store R1,A
 
 `Load - store` : GPR and only loads/stores access memory
 
-```c
+```verilog
 R1 = mem[B]  // load R1,B
 R2 = mem[C]  // load R2,C
 R1 = R1 + R2  // add R1,R1,R2
@@ -432,14 +432,14 @@ MIPS uses all three
   - Why? How can you MCCFif you don’t know what CC is?
 - First control idiom: `if -then -else`
 
-```c
+```verilog
 if (A < B) A++; // A in $s1
 else B++; // B in $s2
 ```
 
 What's the MIPS format?
 
-```c
+```verilog
       slt $s3,$s1,$s2 // if $s1<$s2, then $s3=1
       beqz $s3,else // branch to else if !condition
       addi $s1,$s1,1
@@ -452,14 +452,14 @@ join:
 
 - Second idiom: `for loop with arithmetic induction`
 
-```c
+```verilog
 int A[100], sum, i, N;
 for (i=0; i<N; i++){  // assume: i in $s1, N in $s2
   sum += A[i];  // &A[i] in $s3, sum in $s4
 }
 ```
 
-```c
+```verilog
       sub $s1,$s1,$s1  // initialize i to 0
 loop: slt $t1,$s1,$s2  // if i<N, then $t1=1
       beqz $t1,exit // test for exit at loop header
