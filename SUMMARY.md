@@ -17,4 +17,5 @@
   * [第1章 软件工程学概述](softwareengineering/chep1.md)
   * [第2章 可行性研究](softwareengineering/chep2.md)
   * [第3章 需求分析](softwareengineering/chep3.md)
+  * [第5章 总体设计](softwareengineering/chep5.md)
 
