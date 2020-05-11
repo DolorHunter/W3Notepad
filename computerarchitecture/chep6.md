@@ -286,7 +286,24 @@ What changes would you make to the scoreboard to enable this?
 - What do you do afterwards?
 - `Observation: Dependence between two instructions is detected before the communicated data value becomes available`
 - Option 1: Stall the dependent instruction right away
-- Option 2: Stall the dependent instruction only when necessary  data forwarding/bypassing
+- Option 2: Stall the dependent instruction only when necessary -> data forwarding/bypassing(数据前推)
 - Option 3: …
 
+### Data Forwarding/Bypassing
 
+- Problem: A consumer (dependent) instrction has to wait in decode stage until the producer instruction writes its value in the register file
+- Goal: We do not want to stall the pipeline unnecessarily
+- Observation: *The data value needed by the consumer instrction can be supplied deirectly from a later stage in the pipeline (instead of only from the register file)*
+- Idea: `Add additional dependence check logic and data forwarding paths(buses) to supply the producer's value to the consumer right after the value in available`
+
+### Control Dependence
+
+- Question: `What should the fetch PC be in the next cycle?`
+- Answer: The address of the next instruction
+  - All instructions are control dependent on previous ones. Why?
+- If the fetched instruction is a non-control-flow instruction:
+  - Next Fetch PC is the address of the next-sequential instruction
+  - Easy to determine if we know the size of the fetched instruction
+- If the instruction that is fetched is a control-flow instruction:
+  - How do we determine the next Fetch PC?
+- In fact, how do we know whether or not the fetched instruction is a control-flow instruction?
