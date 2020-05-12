@@ -8,6 +8,7 @@
   * [第四章 存储管理](operatingsystem/chep4.md)
   * [第五章 设备管理](operatingsystem/chep5.md)
   * [第六章 文件管理](operatingsystem/chep6.md)
+  * [第七章 操作系统接口](operatingsystem/chep7.md)
 * [ComputerArchitecture](computerarchitecture/README.md)
   * [01.Introduction](computerarchitecture/chep1.md)
   * [02.Performance Analysis](computerarchitecture/chep2.md)
