@@ -16,6 +16,7 @@
   * [04.流水线基础和性能分析](computerarchitecture/chep4.md)
   * [05.MIPS单周期微架构](computerarchitecture/chep5.md)
   * [06.Pipelining & Hazards](computerarchitecture/chep6.md)
+  * [07.Dependence Handling](computerarchitecture/chep7.md)
 * [SoftwareEngineering](softwareengineering/README.md)
   * [第1章 软件工程学概述](softwareengineering/chep1.md)
   * [第2章 可行性研究](softwareengineering/chep2.md)
