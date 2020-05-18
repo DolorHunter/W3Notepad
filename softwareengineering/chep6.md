@@ -520,7 +520,7 @@ STOP
 
 #### 画出流程图
 
-![imghttps://res.cloudinary.com/dfb5w2ccj/image/upload/v1589341818/notepad/2020-05-13_112834_nzs2ng.webp)
+![img 6.3 - 1](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1589341818/notepad/2020-05-13_112834_nzs2ng.webp)
 
 #### 画出盒图
 
