@@ -24,5 +24,6 @@
   * [第3章 需求分析](softwareengineering/chep3.md)
   * [第5章 总体设计](softwareengineering/chep5.md)
   * [第6章 详细设计](softwareengineering/chep6.md)
+  * [第7章 实现](softwareengineering/chep7.md)
   * [第9章 面向对象方法学引论](softwareengineering/chep9.md)
 
