@@ -724,13 +724,15 @@ e.g.4 Request 0(0,2,0) ：预分配结果
 
 (4) IF 最终的资源分配图中都是孤立结点 THEN T0时刻资源分配图无死锁 ELSE 有死锁（非孤立结点部分）
 
-*注: 能从 P 流出, 结果不会回到 P 即为非阻塞.*
-
 死锁定理：S状态为死锁状态的充分条件是：当且仅当S状态的资源分配图是不可完全简化的。
 
 ![sample1](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1587307267/notepad/2020-04-02_094216_pkrnb1.webp)
 
+*注: P1 申请 R2, R2 分配给 P2, 还剩下 1 个资源, 满足, 释放 P1. P2 申请 R1, R1未分配, 剩下3个资源, 满足, 释放 P2.*
+
 ![sample2](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1587307267/notepad/2020-04-02_094235_wkmtwd.webp)
+
+*注: e.g.2: P1 申请 R2, R2 分配给 P2, 还剩下 0 个资源, 不满足, 无法释放 P1. P2 申请 R1, R1 分配给 P1, P2, 剩下 0 个资源, 不满足, 无法释放 P2.*
 
 ### 死锁的解除
 
