@@ -18,6 +18,8 @@
   * [06.Pipelining & Hazards](computerarchitecture/chep6.md)
   * [07.Dependence Handling](computerarchitecture/chep7.md)
   * [08.Exploiting ILP](computerarchitecture/chep8.md)
+  * [09.Memory Hierarchy](computerarchitecture/chep9.md)
+  * [10. Cache Memory](computerarchitecture/chep10.md)
 * [SoftwareEngineering](softwareengineering/README.md)
   * [第1章 软件工程学概述](softwareengineering/chep1.md)
   * [第2章 可行性研究](softwareengineering/chep2.md)
@@ -26,4 +28,6 @@
   * [第6章 详细设计](softwareengineering/chep6.md)
   * [第7章 实现](softwareengineering/chep7.md)
   * [第9章 面向对象方法学引论](softwareengineering/chep9.md)
+  * [第10章 面向对象分析](softwareengineering/chep10.md)
+  * [第11章 面向对象设计](softwareengineering/chep11.md)
 
