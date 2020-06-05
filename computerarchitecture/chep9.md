@@ -10,11 +10,11 @@
 Can assume the memory is “infinite”
 - Reality: Physical memory size is much smaller than what the programmer assumes
 - The system (software + hardware) maps virtual memory addresses to physical memory
-The system automatically manages the physical memory space transparently to the programmer
+The system automatically manages the physical memory space transparently(透明) to the programmer
 - 优点：
-Programmer don’t need to know the physical size of memory nor manage it
-A small physical memory can appear as a huge one to the programmer
-Life is easier for the programmer
+  - Programmer don’t need to know the physical size of memory nor manage it
+  - A small physical memory can appear as a huge one to the programmer
+  - Life is easier for the programmer
 - 缺点：
 More complex system software and architecture
 
@@ -55,12 +55,12 @@ Perfect control flow | Enough functional units | Zero cost
 
 - Dynamic random access memory
 - Capacitor charge state indicates stored value
-Whether the capacitor is charged or discharged indicates storage of 1 or 0
-1 capacitor
-1 access transistor
+  - Whether the capacitor is charged or discharged indicates storage of 1 or 0
+  - 1 capacitor
+  - 1 access transistor
 - Capacitor leaks through the RC path
-DRAM cell loses charge over time
-DRAM cell needs to be refreshed
+  - DRAM cell loses charge over time
+  - DRAM cell needs to be refreshed
 
 ![DRAM](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1591166014/notepad/2020-06-03_142628_t7b32p.webp)
 
@@ -68,9 +68,9 @@ DRAM cell needs to be refreshed
 
 - Static random access memory
 - Two cross coupled inverters store a single bit
-Feedback path enables the stored value to persist in the “cell”
-4 transistors for storage
-2 transistors for access
+  - Feedback path enables the stored value to persist in the “cell”
+  - 4 transistors for storage
+  - 2 transistors for access
 
 ![SRAM](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1591166014/notepad/2020-06-03_142736_im1qp6.webp)
 
@@ -82,12 +82,12 @@ Feedback path enables the stored value to persist in the “cell”
 
 - 1.Decode row address & drive word-lines
 - 2.Selected bits drive bitlines
-Entire row read
+  - Entire row read
 - 3.Amplify row data
 - 4.Decode column address & select subset of row
-Send to output
+  - Send to output
 - 5.Precharge bit-lines
-For next access
+  - For next access
 
 ## Static Random Access Memory
 
@@ -161,11 +161,9 @@ Manufacturing requires putting capacitor and logic together | Manufacturing comp
 ## Why Memory Hierarchy
 
 - We want both fast and large
-- But we cannot achieve both with a single level of
-memory
+- But we cannot achieve both with a single level of memory
 - Idea: *Have multiple levels of storage*
-  - progressively bigger and slower as the levels are farther from
-  the processor
+  - progressively bigger and slower as the levels are farther from the processor
   - ensure most of the data the processor needs is kept in the fast(er) level(s)
 
 ## The Memory Hierarchy
@@ -181,8 +179,7 @@ memory
 ## Locality
 
 - One’s recent past is a very good predictor of his/her near future.
-- *Temporal Locality*: current data or instruction that is
-being fetched/accessed may be needed soon.
+- *Temporal Locality*: current data or instruction that is being fetched/accessed may be needed soon.
 - *Spatial Locality*: instruction or data near to the current memory location that is being fetched, may be needed soon in the near future.
 
 ## Memory Locality
@@ -242,7 +239,7 @@ levels
 
 ![Modern Memory Hierarchy](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1591167656/notepad/2020-06-03_150022_wbapb6.webp)
 
-## Hierarchical Latency Analysis
+## `Hierarchical Latency Analysis`
 
 - For a given memory hierarchy level i it has a technology-intrinsic access time: ti, The perceived (感知的) access time Ti is longer than ti
 - Except for the outer-most hierarchy, when looking for a given address there is:
@@ -259,9 +256,9 @@ levels
 hi and mi are defined to be the `hit-rate` and `miss-rate` of just the references that
 missed at Li-1
 
-## Hierarchy Design Considerations
+## `Hierarchy Design Considerations`
 
-- Recursive latency equation ```Ti = ti + mi ·Ti+1```
+- Recursive latency equation(遞歸延遲方程) ```Ti = ti + mi ·Ti+1```
 - `The goal: achieve desired T1 within allowed cost`
 - Ti ≈ ti is desirable
 - Keep mi low
@@ -275,8 +272,7 @@ missed at Li-1
 
 ### Cache
 
-- Generically, any structure that “memorizes” frequently used results to avoid repeating the long-latency operations required to reproduce the results from
-scratch
+- Generically, any structure that “memorizes” frequently used results to avoid repeating the long-latency operations required to reproduce the results from scratch
   - e.g. a web cache
 - Most commonly in the on-die context: an automatically-managed memory hierarchy based on SRAM
   - memorize in SRAM the most frequently accessed DRAM memory locations to avoid repeatedly paying for the DRAM access latency
@@ -284,8 +280,7 @@ scratch
 ### Caching Basics 2
 
 - Block (line): Unit of storage in the cache
-  - Memory is logically divided into cache blocks that map to
-locations in the cache
+  - Memory is logically divided into cache blocks that map to locations in the cache
 - When data referenced
   - HIT: If in cache, use cached data instead of accessing memory
   - MISS: If not in cache, bring block into cache
@@ -301,6 +296,5 @@ locations in the cache
 ![Cache Abstraction and Metrics](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1591168310/notepad/2020-06-03_151045_jldxmo.webp)
 
 - Cache hit rate = (# hits) / (# hits + # misses) = (# hits) / (# accesses)
-- Average memory access time (AMAT)\
-= ( hit-rate * hit-latency ) + ( miss-rate * miss-latency )
+- Average memory access time (AMAT) = ( hit-rate \* hit-latency ) + ( miss-rate \* miss-latency )
 - Aside: Can reducing AMAT reduce performance?

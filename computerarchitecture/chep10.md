@@ -160,8 +160,7 @@ associativity
 - Physical memory (DRAM) is a cache for disk
   - Usually managed by system software via the virtual memory subsystem
 - Page replacement is similar to cache replacement
-- Page table is the “tag store” for physical memory data
-store
+- Page table is the “tag store” for physical memory data store
 - What is the difference?
   - Access speed: cache vs. physical memory
   - Number of blocks in a cache vs. physical memory
@@ -187,8 +186,7 @@ store
   - Need a bit in the tag store indicating the block is “dirty/modified”
 - Write-through
   - Simpler
-  - All levels are up to date. *Consistency*: Simpler cache coherence
-  because no need to check lower-level caches
+  - All levels are up to date. *Consistency*: Simpler cache coherence because no need to check lower-level caches
   - More bandwidth intensive; no coalescing of writes
 
 ## Handling Writes (II)
@@ -343,7 +341,7 @@ if spatial locality is not high
 
 - Remember
   - Average memory access time (AMAT)
-    - = ( hit-rate * hit-latency ) + ( miss-rate * miss-latency )
+    - = ( hit-rate \* hit-latency ) + ( miss-rate \* miss-latency )
 - Reducing miss rate
   - Remind: reducing miss rate can reduce performance if more costly-to-refetch blocks are evicted
 - Reducing miss latency/cost
