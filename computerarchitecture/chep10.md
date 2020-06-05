@@ -246,17 +246,121 @@ store
 
 ## Cache Performance
 
-p25
+### Cache Parameters vs. Miss/Hit Rate
 
+- Cache size
+- Block size
+- Associativity
+- Replacement policy
+- Insertion/Placement policy
 
+### Cache Size
 
+- Cache size: total data (not including tag) capacity
+  - bigger can exploit temporal locality better
+  - not ALWAYS better
+- Too large a cache adversely affects hit and miss latency
+  - smaller is faster => bigger is slower
+  - access time may degrade critical path
+- Too small a cache
+  - doesn’t exploit temporal locality well
+  - useful data replaced often
+- Working set: the whole set of data the executing application references
+  - Within a time interval
 
+![Cache Size](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1591342615/notepad/2020-06-05_152447_fra9h0.webp)
 
+### Block Size
 
+- Block size is the data that is associated with an address tag
+  - not necessarily the unit of transfer between hierarchies
+    - *Sub-blocking: A block divided into multiple pieces (each with V bit)*
+      - *Can improve “write” performance*
+- Too small blocks
+  - don’t exploit spatial locality well
+  - have larger tag overhead
+- Too large blocks
+  - too few total # of blocks  less
+temporal locality exploitation
+  - waste of cache space and bandwidth/energy
+if spatial locality is not high
 
+![Block Size](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1591342615/notepad/2020-06-05_152803_pzznwa.webp)
 
+### Large Blocks: Critical-Word and Sub-blocking
 
+- Large cache blocks can take a long time to fill into the cache
+  - fill cache line *critical word first*
+  - restart cache access before complete fill
+- Large cache blocks can waste bus bandwidth
+  - divide a block into sub-blocks
+  - associate separate valid bits for each sub-block
+  - *When is this useful?*
 
+![Sectored Caches](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1591170658/notepad/2020-06-03_155028_mprz4l.webp)
 
+### Associativity
 
+- How many blocks can map to the same index (or set)?
+- Larger associativity
+  - lower miss rate, less variation among programs
+  - diminishing returns, higher hit latency
+- Smaller associativity
+  - lower cost
+  - lower hit latency
+    - Especially important for L1 caches
+- Power of 2 required?
 
+![Associativity](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1591342615/notepad/2020-06-05_153237_x7jvnm.webp)
+
+### Classification of Cache Misses
+
+- Compulsory miss
+  - first reference to an address (block) always results in a miss
+  - subsequent references should hit unless the cache block is displaced for the reasons below
+- Capacity miss
+  - cache is too small to hold everything needed
+  - defined as the misses that would occur even in a fullyassociative cache (with optimal replacement) of the same capacity
+- Conflict miss
+  - defined as any miss that is neither a compulsory nor a capacity miss
+
+### How to Reduce Each Miss Type
+
+- Compulsory
+  - Caching cannot help
+  - Prefetching can help
+- Conflict
+  - More associativity
+  - Other ways to get more associativity without making the cache associative
+    - Victim cache
+    - Hashing
+    - Software hints?
+- Capacity
+  - Utilize cache space better: keep blocks that will be referenced
+  - Software management: divide working set such that each “phase” fits in cache
+
+### Improving Cache “Performance”
+
+- Remember
+  - Average memory access time (AMAT)
+    - = ( hit-rate * hit-latency ) + ( miss-rate * miss-latency )
+- Reducing miss rate
+  - Remind: reducing miss rate can reduce performance if more costly-to-refetch blocks are evicted
+- Reducing miss latency/cost
+- Reducing hit latency/cost
+
+### Improving Basic Cache Performance
+
+- Reducing miss rate
+  - More associativity
+  - Alternatives/enhancements to associativity
+    - Victim caches, hashing, pseudo-associativity, skewed associativity
+  - Better replacement/insertion policies
+  - Software approaches
+- Reducing miss latency/cost
+  - Multi-level caches
+  - Critical word first
+  - Subblocking/sectoring
+  - Better replacement/insertion policies
+  - Non-blocking caches (multiple cache misses in parallel)
+  - Issues in multicore caches
