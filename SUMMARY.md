@@ -24,6 +24,8 @@
   * [12.Main Memory](computerarchitecture/chep12.md)
   * [13.Virtual Memory](computerarchitecture/chep13.md)
   * [14.Multicore System](computerarchitecture/chep14.md)
+  * [15.IO System](computerarchitecture/chep15.md)
+  * [16.Interconnection Networks](computerarchitecture/chep16.md)
 * [SoftwareEngineering](softwareengineering/README.md)
   * [第1章 软件工程学概述](softwareengineering/chep1.md)
   * [第2章 可行性研究](softwareengineering/chep2.md)
