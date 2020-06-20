@@ -31,7 +31,7 @@ Want to buy the fastest computer for what you want to do?
 
 Want to design the fastest computer for what the customer wants to pay?
 
-* Cost is an important criterion
+* Cost is an important criterion\(标准\)
 
 ## 本节内容
 
@@ -50,8 +50,6 @@ Computer system user
 * Minimize elapsed time for program:
 
   `t_resp = t_end - t_start`
-
-  resp end start
 
 * Called `response time (响应时间)`
 
@@ -80,10 +78,8 @@ Is throughput = 1/avg. response time?
 * For computer architects
   * CPU time = time spent running a program
 * Intuitively, `bigger should be faster`, so:
-  * Performance = 1/X time, where X is response, CPU
-
-    execution, etc.
-* Elapsed time = CPU time + I/O wait
+  * Performance = 1/X time, where X is response, CPU execution, etc.
+* Elapsed time(经过时间) = CPU time + I/O wait
 * `We will concentrate on CPU time`
 
 ## 如何提升性能
@@ -134,18 +130,12 @@ Architecture —&gt; Implementation —&gt; Realization Compiler Designer \| Pro
 
 ## 设计的目标
 
-* Minimize time which is the product, `NOT`
+* Minimize time which is the product, `NOT` the isolated terms
 
-  the isolated terms
-
-* Common error to miss terms while devising
-
-  optimizations
+* Common error to miss terms while devising optimizations
 
   * E.g. ISA change to decrease instruction count
-  * BUT leads to CPU organization which makes clock
-
-    slower
+  * BUT leads to CPU organization which makes clock slower
 
 * Be mind that: `terms are inter-related`
 
@@ -246,9 +236,7 @@ Time(B)/Time(A) = 1 = (N x 2.0 x clock(A))/(N x 1.2 x 2)
 
 ## 总结一
 
-* Time and performance: Machine A n times
-
-  faster than Machine B
+* Time and performance: Machine A n times faster than Machine B
 
   * `Iff Time(B)/Time(A) = n`
 
@@ -316,7 +304,7 @@ Average speed = total distance / total time
 
 ## Harmonic Mean
 
-* Harmonic mean of rates = ![Harmonic Mean](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1588145593/notepad/2020-04-29_153142_ln0ht0.webp)
+* Harmonic mean(谐波均值) of rates = ![Harmonic Mean](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1588145593/notepad/2020-04-29_153142_ln0ht0.webp)
 * `Use HM if forced to start and end with rates (e.g. reporting MIPS or MFLOPS)`
 * Why?
   * Rate has time in denominator
@@ -363,11 +351,9 @@ _注: 对于相对 / 归一化的数据, 不使用均值计算, 用几何均值.
   ![Geometric Mean](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1588145593/notepad/2020-04-29_153233_bl44zs.webp)
 
 * `Independent of reference machine`
-* In the example, GM for machine a is 1, for
+* In the example, GM for machine a is 1, for machine B is also 1
 
-  machine B is also 1
-
-  * Normalized with respect to either machine
+  * Normalized(归一化) with respect to either machine
 
 Disadvantage
 

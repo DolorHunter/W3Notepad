@@ -3,14 +3,14 @@
 ## The Computer Revolution
 
 * Progress in computer technology
-  * Underpinned by Moore’s Law
-* Makes novel applications feasible
+  * Underpinned\(巩固\) by Moore’s Law
+* Makes novel applications feasible\(可行\)
   * Computers in automobiles
   * Cell phones
   * Human genome project
   * World Wide Web
   * Search Engines
-* Computers are pervasive
+* Computers are pervasive\(无处不在\)
 
 ## Classes of Computers
 
@@ -20,7 +20,7 @@
 * Desktop Computer
   * Emphasis on price-performance
 * Servers
-  * Emphasis on availability, scalability, throughput
+  * Emphasis on availability, scalability, throughput(吞吐率)
 * Clusters / Warehouse Scale Computers
   * Used for “Software as a Service\(SaaS\)”
   * Emphasis on availability and price-performance
@@ -34,9 +34,9 @@
 * Personal Mobile Device\(PMD\)
   * BaIery operated
   * Connects to the Internet
-  * Hundreds ofdollars
-  * Smart phones, tablets, lectronicglasses
-* Cloud compucng
+  * Hundreds of dollars
+  * Smart phones, tablets, electronic glasses
+* Cloud computing
   * Warehouse Scale Computers\(WSC\)
   * Sogware as a Service\(SaaS\)
   * Porcon of sogware run on a PMD and a porcon run in the Cloud
@@ -113,7 +113,7 @@ Computer Architecture
 
 * Programmer visible state\(Memory & Register\)
 * Operations\(Instructions and how they work\)
-* Execution Semantics\(interrupts\)
+* Execution Semantics\(语义学\)\(interrupts\)
 * Input/Output
 * Data Types/Sizes
 
@@ -124,19 +124,19 @@ Instruction Set Architecture
 _注: 一个软件与硬件之间的契约._
 
 * Properces of a good abstraccon
-  * Lasts through many generacons\(portability\)
+  * Lasts through many generations\(portability\)
   * Used in many different ways\(generality\)
-  * Provides convenient funcconality to higher levels
-  * Permits an efficient implementacon at lower levels
+  * Provides convenient functionality to higher levels
+  * Permits an efficient Implementations at lower levels
 
 Microarchitecture/Organization:
 
-* Tradeoffs on how to implement ISA for some metric\(Speed, Energy, Cost\)
+* Trade offs on how to implement ISA for some metric\(Speed, Energy, Cost\)
 * Examples: Pipeline depth, number of pipelines, cache size, silicon area, peak power, execution ordering, bus widths, ALU widths
 
 ## 软件的发展
 
-up to 1955, Libraries of numerical routines
+Up to 1955, Libraries of numerical routines
 
 * Floating point operations
 * Transcendental functions
@@ -202,9 +202,6 @@ The zSeries z14 Microprocessor
 
 * 5.2 GHz in IBM 14nm SOI CMOS technology
 * 6.1 billion transistors in 696 mm
-
-  2
-
 * 64-bit virtual addressing
   * original S/360 was 24-bit, and S/370 was 31-bit extension
 * 10-core design
@@ -212,9 +209,7 @@ The zSeries z14 Microprocessor
 * 10-issue/cycle out-of-order superscalar pipeline
 * Out-of-order memory accesses
 * Redundant datapaths
-  * every instruction performed in two arallel datapaths and
-
-    results compared
+  * every instruction performed in two arallel datapaths and results compared
 * 128KB L1 I-cache, 128KB L1 D-cache on-chip
 * 2MB private I-cache L2 per core
 * 4MB private D-cache L2 per core
