@@ -39,13 +39,13 @@ _实际总是如此美好吗？_
 
 ### 现实的流水线: Throughput
 
-* Nonpipelined version with delay T
+* Non-pipelined version with delay T
 
 ```plain
 BW = 1/(T+S) where S = latch delay
 ```
 
-![Nonpipelined](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1588746638/notepad/2020-05-06_141758_nvy2of.webp)
+![Non-pipelined](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1588746638/notepad/2020-05-06_141758_nvy2of.webp)
 
 * k-stage pipelined version
 
@@ -209,7 +209,7 @@ Need to detect and resolve nter-instruction dependencies to ensure the pipeline 
   * Control
 * Long-latency \(multi-cycle\) operations
 
-### 相关(denpendence)及其类型
+### 相关(dependence)及其类型
 
 * Also called “ dependency” or less desirably “hazard”
 * Dependences dictate ordering requirements between instructions
