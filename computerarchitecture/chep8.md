@@ -8,8 +8,9 @@
 - 本章讨论：**如何通过各种可能的技术，获得更多的指令级并行性。**
   - 硬件＋软件: 必须要硬件技术和软件技术互相配合，才能够最大限度地挖掘出程序中存在的指令级并行。
 - **流水线处理机的实际CPI**
-  - 理想流水线的CPI加上各类停顿的时钟周期数：\
-  ```CPI流水线 = CPI理想 + 停顿结构冲突 + 停顿数据冲突 + 停顿控制冲突```
+  - 理想流水线的CPI加上各类停顿的时钟周期数：
+
+    ```CPI流水线 = CPI理想 + 停顿结构冲突 + 停顿数据冲突 + 停顿控制冲突```
   - 理想CPI是衡量流水线最高性能的一个指标。
   - IPC：Instructions Per Cycle
 - **基本程序块 (Basic Block)**
@@ -121,10 +122,12 @@
   - 一旦一条指令受阻，其后的指令都将停顿，这种处理策略会限制流水线的性能。
 - **为了能够乱序执行，可以将5段流水线的译码阶段再分为两个阶段：**
   - 流出（Issue，IS）：指令译码，检查是否存在结构冲突。（**in-order issue**)
-  - 读操作数（Read Operands，RO）：等待数据冲突消失，然后读操作数。\
+  - 读操作数（Read Operands，RO）：等待数据冲突消失，然后读操作数。
+
   ![IS-R0](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1589785835/notepad/2020-05-18_150936_wthdxb.webp)
 - 在前述5段流水线中，是不会发生WAR冲突和WAW冲突的。`但乱序执行就使得它们可能会发生。`
-  - 例如，考虑下面的代码\
+  - 例如，考虑下面的代码
+
   ![代码](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1589786281/notepad/2020-05-18_151223_ia7xro.webp)
 - Tomasulo算法可以通过使用寄存器重命名来消除上面的相关，从而提升指令执行效率。
   - 后续会详细介绍该算法
@@ -172,23 +175,26 @@
 - 对WAR的解决方案：
   - 排队等待操作以及它们操作数的拷贝
   - 只在读操作数段才读取寄存器
-- 对WAW的解决方案，必须检测冒险：暂停等待到其他指令
-完成；
-- 在执行阶段可能有多个指令 => 设置多个执行部件或者流
-水化执行部件；（消除瓶颈）
+- 对WAW的解决方案，必须检测冒险：暂停等待到其他指令完成；
+- 在执行阶段可能有多个指令 => 设置多个执行部件或者流水化执行部件；（消除瓶颈）
 - 记分板跟踪相关、状态或操作；
 - 记分板用四个流水段代替ID、EX、WB三段；
 
 ### 记分板控制的四级
 
-1. **Issue—decode instructions & check for structural hazards.**\
-If a functional unit for the instruction is `free` and no other active instruction has the same destination register (`WAW`), the scoreboard issues the instruction to the functional unit and updates its internal data structure. If a structural or WAW hazard exists, then the instruction issue `stalls`, and no further instructions will issue until these hazards are cleared (`in-order issue`).
-2. **Read operands—wait until no data hazards, then read operands.**\
-A source operand is available if `no earlier issued` active instruction is going to write it, or if the register containing the operand is being written by a `currently active` functional unit. When the source operands are available, the scoreboard tells the functional unit to proceed to read the operands from the registers and begin execution. The scoreboard resolves `RAW` hazards dynamically in this step, and `instructions may be sent into execution out of order`.
+1. **Issue—decode instructions & check for structural hazards.**
+
+  If a functional unit for the instruction is `free` and no other active instruction has the same destination register (`WAW`), the scoreboard issues the instruction to the functional unit and updates its internal data structure. If a structural or WAW hazard exists, then the instruction issue `stalls`, and no further instructions will issue until these hazards are cleared (`in-order issue`).
+2. **Read operands—wait until no data hazards, then read operands.**
+
+  A source operand is available if `no earlier issued` active instruction is going to write it, or if the register containing the operand is being written by a `currently active` functional unit. When the source operands are available, the scoreboard tells the functional unit to proceed to read the operands from the registers and begin execution. The scoreboard resolves `RAW` hazards dynamically in this step, and `instructions may be sent into execution out of order`.
 3. **Execution—operate on operands (EX)**
-The functional unit begins execution upon receiving operands. When the result is ready, it notifies the scoreboard that it has completed execution.
+
+  The functional unit begins execution upon receiving operands. When the result is ready, it notifies the scoreboard that it has completed execution.
 4. **Write result—finish execution (WB)**
-Once the scoreboard is aware that the functional unit has completed execution, the scoreboard checks for WAR hazards. If none, it writes results. If `WAR`, then it stalls the instruction.\
+
+  Once the scoreboard is aware that the functional unit has completed execution, the scoreboard checks for WAR hazards. If none, it writes results. If `WAR`, then it stalls the instruction.
+
 Example:
 
 ```assembly
@@ -207,9 +213,9 @@ CDC 6600 scoreboard would stall SUBD until ADDD reads operands
 
 #### 2. Functional unit status—Indicates the state of the functional unit (FU)
 
-- Busy — Indicates whether the unit is busy or not\
-- Op — Operation to perform in the unit (e.g., + or –)\
-- Fi — Destination register\
+- Busy — Indicates whether the unit is busy or not
+- Op — Operation to perform in the unit (e.g., + or –)
+- Fi — Destination register
 - Fj, Fk — Source-register numbers
 - Qj, Qk— Functional units producing source registers Fj, Fk
 - Rj, Rk— Flags indicating when Fj, Fk are ready
@@ -217,7 +223,7 @@ CDC 6600 scoreboard would stall SUBD until ADDD reads operands
 #### 3. Register result status
 
 - Indicates which functional unit will write each register, if one exists.
-Blank when no pending instructions will write that register
+- Blank when no pending instructions will write that register
 
 ### 记分板示例
 
@@ -316,7 +322,7 @@ Blank when no pending instructions will write that register
 `计分板总结: 顺序流出, 乱序读, 乱序执行, 乱序完成.`
 
 - 6600记分板的局限性：
-  - 没有前递/旁路(forwarding)硬件;`(不能消除真相关造成等待的周期数)`
+  - 没有前递(forwarding)/旁路(bypass)硬件;`(不能消除真相关造成等待的周期数)`
   - 指令调度局限于基本块内(指令窗口小);
   - 功能部件少（结构冒险），特别是integer/load store部件;
   - 存在结构冒险，就暂停发射指令;
@@ -332,8 +338,7 @@ Blank when no pending instructions will write that register
 - 为IBM 360/91设计的、在CDC 6600三年之后 (1966)
 - **目标：** 即使在没有特殊编译支持的情况下，也能取得高性能;
 - IBM 360 和 CDC 6600指令系统体系结构之间的差异：
-  - IBM的每条指令有两个寄存器描述符(register
-specifiers)，而CDC 6600有三个；
+  - IBM的每条指令有两个寄存器描述符(register specifiers)，而CDC 6600有三个；
   - IBM有四个浮点寄存器，而CDC 6600有八个。
 - 为什么要学习Tomasulo算法？
   - 由此产生了Alpha 21264、 HP 8000、 MIPS 10000、Pentium II、 PowerPC 604, …
@@ -360,8 +365,10 @@ specifiers)，而CDC 6600有三个；
   - 如果没有就绪，就观测公共数据总线等待所需结果；
 - `3. Write result`—**完成执行(WB)**
   - 通过公共数据总线将结果写入到所有等待的部件；
-  - 标记保留站可用 (Not busy)；\
-  `公共数据总线`: **数据 + 源 (“来源” 总线)**
+  - 标记保留站可用 (Not busy)；
+  
+    `公共数据总线`: **数据 + 源 (“来源” 总线)**
+
   - 64位数据 + 4位功能部件源地址；
   - 如果与期望的功能部件匹配，就“ 写” (产生结果)；
   - 进行广播 (broadcast)；
@@ -460,8 +467,7 @@ WAW: 通过换名避免 | 暂停发射
 - 本节中介绍的方法对于每个时钟周期流出多条指令（若为n条，就称为n流出）的处理机来说非常重要。
   - 在n流出的处理机中，遇到分支指令的可能性增加了n倍。要给处理器连续提供指令，就需要预测分支的结果；
   - Amdahl定律告诉我们，机器的CPI越小，控制停顿的相对影响就更大。
-- 动态分支预测：在程序运行时，根据分支指令过
-去的表现来预测其将来的行为。
+- 动态分支预测：在程序运行时，根据分支指令过去的表现来预测其将来的行为。
   - 如果分支行为发生了变化，预测结果也跟着改变；
   - 有更好的预测准确度和适应性；
 - 分支预测的有效性取决于：
@@ -540,8 +546,7 @@ WAW: 通过换名避免 | 暂停发射
 
 ### 前瞻(推测)执行
 
-- 前瞻执行（speculative execution） 的基本思
-想：
+- 前瞻执行（speculative execution） 的基本思想：
   - 对分支指令的结果进行猜测，并假设这个猜测总是对的，然后按这个猜测结果继续取、流出和执行后续的指令。
     - 指令执行的结果不是写回到寄存器或存储器，而是放到一个称为ROB（Re-Order Buffer）的缓冲器中；
     - 等到相应的指令得到“确认”（commit）（即确实是应该执行的）之后，才将结果写入寄存器或存储器。
@@ -558,8 +563,7 @@ WAW: 通过换名避免 | 暂停发射
     - ② 指令确认 ；
 - 写结果段
   - 把前瞻执行的结果写到ROB中；
-  - 通过CDB在指令之间传送结果，供需要用到这些
-结果的指令使用。
+  - 通过CDB在指令之间传送结果，供需要用到这些结果的指令使用。
 - 指令确认段
   - 在分支指令的结果出来后，对相应指令的前瞻执行给予确认；
   - 如果前面所做的猜测是对的，把在ROB中的结果写到寄存器或存储器；
@@ -579,8 +583,7 @@ WAW: 通过换名避免 | 暂停发射
 - 采用前瞻执行机制后，指令的执行步骤：
   - ① 流出
     - 从指令队列的头部取一条指令；
-    - 如果有空闲的保留站（设为r） **且** 有空闲的ROB项（设为b），
-    就流出该指令，并把相应的信息放入保留站r和ROB项b；
+    - 如果有空闲的保留站（设为r） **且** 有空闲的ROB项（设为b），就流出该指令，并把相应的信息放入保留站r和ROB项b；
     - 如果保留站或ROB全满，便停止流出指令，直到它们都有空闲的项。（`结构冲突`）
   - ② 执行
     - 当两个操作数都就绪后，就可以执行该指令的操作；
@@ -639,8 +642,7 @@ ADD.D F6,F8,F2
     - 设这个上限为n，就称该处理机为n流出；
     - 可以通过编译器进行静态调度，也可以基于Tomasulo算法进行动态调度；
   - VLIW/EPIC
-    - 在每个时钟周期流出的指令条数是固定的，这些指令构成一
-    条长指令或者一个 **指令包**；
+    - 在每个时钟周期流出的指令条数是固定的，这些指令构成一条长指令或者一个 **指令包**；
     - 指令包中，指令之间的并行性是通过指令显式地表示出来的；
     - 指令调度是由 **编译器静态** 完成的；
 
@@ -820,7 +822,8 @@ Loop: L.D F0, 0（R1） // 取一个数组元素放入F0
     x[i] = x[i] + s；
   ```
 
-  **解**： 把该程序翻译成MIPS汇编语言代码：\
+  **解**： 把该程序翻译成MIPS汇编语言代码：
+
 假设：
 
   1. R1的初值是指向第一个元素(s1000)
@@ -835,17 +838,22 @@ Loop: L.D F0, 0（R1） // 取一个数组元素放入F0
       BNE R1,R2,Loop
   ```
 
-  其中：\
+  其中：
+
   整数寄存器R1：指向向量中的当前元素。（`初值为向量中最高端元素的地址`）
 
-- 不进行指令调度的情况下，程序的实际执行情况：\
-![不进行指令调度的情况下，程序的实际执行情况](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1589785054/notepad/2020-05-18_143710_mdkgpq.webp)
+- 不进行指令调度的情况下，程序的实际执行情况：
+
+  ![不进行指令调度的情况下，程序的实际执行情况](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1589785054/notepad/2020-05-18_143710_mdkgpq.webp)
+
   - 每个元素的操作需要10个时钟周期，其中5个是空转周期。
 - 如果进行如下的指令调度：
   - 把DADDIU指令调度到L.D指令和ADD.D指令之间的“空转”拍；
   - 把S.D指令放到了分支指令的延迟槽中；
-  - 对存储器地址偏移量进行调整；\
-  ![进行如下的指令调度，程序的实际执行情况](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1589785053/notepad/2020-05-18_143858_g59p4f.webp)
+  - 对存储器地址偏移量进行调整；
+  
+    ![进行如下的指令调度，程序的实际执行情况](https://res.cloudinary.com/dfb5w2ccj/image/upload/v1589785053/notepad/2020-05-18_143858_g59p4f.webp)
+
   - 一轮循环的操作时间从10个时钟周期减少到6个, 其中5个周期是有指令执行的，1个为空转周期。
 - **例子中的问题及解决方案**
   - **问题**：只有L.D、ADD.D和S.D这3条指令是有效操作。
@@ -887,8 +895,9 @@ Loop: L.D F0, 0（R1） // 取一个数组元素放入F0
   - **结论**：通过循环展开、寄存器重命名和指令调度，可以有效地开发出指令级并行。
 - **循环展开和指令调度时要注意以下几个方面：**
 - 保证正确性。
-  - 在循环展开和调度过程中尤其要注意两个地方的正确性：\
-  **循环控制** 和 **操作数偏移量的修改**。
+  - 在循环展开和调度过程中尤其要注意两个地方的正确性：
+
+    **循环控制** 和 **操作数偏移量的修改**。
 - 注意有效性。
   - 只有能够找到不同循环体之间的无关性，才能有效地使用循环展开。
 - 使用不同的寄存器,否则可能导致新的冲突。

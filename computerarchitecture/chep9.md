@@ -7,16 +7,18 @@
 ## Virtual vs. Physical Memory
 
 - Programmer sees virtual memory
-Can assume the memory is “infinite”
+  
+  Can assume the memory is “infinite”
 - Reality: Physical memory size is much smaller than what the programmer assumes
 - The system (software + hardware) maps virtual memory addresses to physical memory
-The system automatically manages the physical memory space transparently(透明) to the programmer
+  
+  The system automatically manages the physical memory space transparently(透明) to the programmer
 - 优点：
   - Programmer don’t need to know the physical size of memory nor manage it
   - A small physical memory can appear as a huge one to the programmer
   - Life is easier for the programmer
 - 缺点：
-More complex system software and architecture
+  - More complex system software and architecture
 
 ## Idealism
 
@@ -125,7 +127,7 @@ Read Sequence
 
 - 1~3 same as SRAM
 - 4.a “flip-flopping” sense amp amplifies and regenerates the bitline, data bit is mux’ed out
-- 5.precharge all bitlines
+- 5 same as SRAM
 
 `Destructive reads`
 
